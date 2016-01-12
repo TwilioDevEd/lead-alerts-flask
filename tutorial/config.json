@@ -1,0 +1,6 @@
+{
+    "title": "Instant Lead Alerts",
+    "repo": "TwilioDevEd/lead-alerts-flask",
+    "heroku": false,
+    "description": "In this tutorial, we will learn how to instantly route leads to sales reps (in a real estate scenario) using text messages. Let's get started!"
+}

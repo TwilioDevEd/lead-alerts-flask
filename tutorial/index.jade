@@ -1,0 +1,113 @@
+.chapter(data-title='Setting Up The Application')
+  .step(
+    data-title='What Are We Building?',
+    data-file='lead_alerts/services/twilio_service.py')
+    :markdown
+      ## What Are We Building?
+
+      You probably already have landing pages or product detail views in your
+      web application, which you're using to generate leads for your business. 
+      In this tutorial, we'll use Twilio SMS to send a message when a new lead
+      is found.
+
+      ![Lead Alerts Flow](//s3.amazonaws.com/howtodocs/lead-alerts-flow.png)
+
+      In this example we'll be implementing instant lead alerts for real estate
+      (much like [our awesome friends at
+      Trulia](//www.twilio.com/customers/stories/trulia)). We'll create a
+      landing page for a new house on the market, and notify a real estate agent
+      the moment a potential customer requests information. 
+
+      Let's see how it works! Click the next arrow above to continue the tutorial.
+
+  .step(
+    data-title='Landing Page Data',
+    data-file='lead_alerts/views.py',
+    data-highlight='6-17')
+    :markdown
+      ## Landing Page Data
+
+      To display a landing page for our house, we'll first need some data about
+      the fictional house we've put on the market. For demonstration purposes,
+      we've hard-coded a dictionary containing information we need.
+
+      ---
+
+      **See Also:**
+      * [Flask Routing](//flask.pocoo.org/docs/0.10/quickstart/#routing)
+      * [Python Dictionary](//docs.python.org/2/tutorial/datastructures.html#dictionaries)
+
+  .step(data-title='Rendering the Landing Page', 
+    data-file='lead_alerts/templates/index.html')
+    :markdown
+      ## Rendering the Landing Page
+
+      In our template, we insert data about the house, and in a sidebar
+      include a form for the user to enter in their contact information to
+      request more info about the home.
+
+      ---
+
+      **See Also:**
+      * [Flask Templates](//flask.pocoo.org/docs/0.10/tutorial/templates/)
+
+  .step(
+    data-title='Creating a Twilio API Client', 
+    data-file='lead_alerts/services/twilio_service.py')
+    :markdown
+      ## Creating a Twilio REST API Client
+
+      Here we create a helper class with an authenticated Twilio REST
+      API client that we can use anytime we need to send a text message. We
+      initialize it with our [Twilio Account Credentials](//www.twilio.com/user/account/messaging/dashboard) 
+      stored as environment variables.
+
+      ---
+
+      **See Also:**
+      * [Twilio SMS and MMS Quickstart](//www.twilio.com/docs/quickstart/ruby/sms/sending-via-rest)
+
+  .step(
+    data-title='Handling the POST Request', 
+    data-file='lead_alerts/views.py',
+    data-highlight='19-40')
+    :markdown
+      ## Handling the POST Request
+
+      This code handles the HTTP `POST` request issued by our landing page. It 
+      uses our `MessageSender` class to send a SMS message to the real estate 
+      agent's phone number, which is also set as a environment variable. We 
+      include the lead's name, phone number, and inquiry directly in the body of 
+      the text message we send to the agent.
+
+      Now the agent has all the information they need to immediately follow up on the lead.
+
+      ---
+
+      **See Also:**
+      * [Flask HTTP Methods](//flask.pocoo.org/docs/0.10/quickstart/#http-methods)
+
+  .step
+    :markdown
+      ## Where to next?
+
+      That's it! We've just implemented an application to instantly route leads
+      to sales people using text messages. If you're a
+      Python developer working with Twilio, you might want to check out these
+      other tutorials.
+
+      [**Appointment Reminders**](//www.twilio.com/docs/tutorials/walkthrough/appointment-reminders/python/flask)
+
+      Learn to implement appointment reminders in your web app with Twilio.
+
+      [**Two-Factor Authentication with Authy**](//www.twilio.com/docs/tutorials/walkthrough/two-factor-authentication/python/flask)
+
+      Learn to implement two-factor authentication (2FA) in your web app with
+      Twilio-powered Authy.
+
+      ### Did this help?
+
+      Thanks for checking out this tutorial! If you have any feedback
+      to share with us, we'd love to hear it. Tweet
+      [@twilio](//twitter.com/twilio) to let us know what you
+      think.

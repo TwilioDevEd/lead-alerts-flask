@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>Instant Lead Alerts</title><style>body, html {
+  height:100%;
+  width:100%;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  background-color:#ddd;
+}
+.wrapper {
+  height:100%;
+  width:100%;
+}</style><link rel="shortcut icon" href="//twilio.com/bundles/marketing/img/favicons/favicon.ico"><link rel="apple-touch-icon" href="//twilio.com/bundles/marketing/img/favicons/favicon_57.png"><link rel="apple-touch-icon" sizes="72x72" href="//twilio.com/bundles/marketing/img/favicons/favicon_72.png"><link rel="apple-touch-icon" sizes="114x114" href="//twilio.com/bundles/marketing/img/favicons/favicon_114.png"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"><link rel="stylesheet" href="viewsaurus.css"></head><body><div class="wrapper"><div id="viewsaurus" data-title="Instant Lead Alerts"><div class="saurus-panes"><div class="saurus-prose"><div class="saurus-prose-header"><div class="title-outer"><span class="step-title">Instant Lead Alerts</span></div></div><div class="saurus-nav-buttons"><div class="saurus-nav-button nav-overview"><div class="saurus-nav-button-inner"><i class="fa fa-fw fa-list"></i></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-previous"><div class="saurus-nav-button-inner"><a href=""> <i class="fa fa-fw fa-play fa-rotate-180"></i></a></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-next clickable"><div class="saurus-nav-button-inner"><a href="#1"> <i class="fa fa-fw fa-play"></i></a></div></div><div class="saurus-next-title"><span class="next-title-inner"></span></div></div><div class="saurus-progress-bar"></div><div class="saurus-start"><p>In this tutorial, we will learn how to instantly route leads to sales reps (in a real estate scenario) using text messages. Let's get started!</p><a href="#0">Start Tutorial</a></div><div class="saurus-content"><div data-title="Setting Up The Application" class="chapter"><div data-title="What Are We Building?" data-file="lead_alerts/services/twilio_service.py" class="step"><h2 id="what-are-we-building-">What Are We Building?</h2>
+<p>You probably already have landing pages or product detail views in your
+web application, which you&#39;re using to generate leads for your business. 
+In this tutorial, we&#39;ll use Twilio SMS to send a message when a new lead
+is found.</p>
+<p><img src="//s3.amazonaws.com/howtodocs/lead-alerts-flow.png" alt="Lead Alerts Flow"></p>
+<p>In this example we&#39;ll be implementing instant lead alerts for real estate
+(much like <a href="//www.twilio.com/customers/stories/trulia">our awesome friends at
+Trulia</a>). We&#39;ll create a
+landing page for a new house on the market, and notify a real estate agent
+the moment a potential customer requests information. </p>
+<p>Let&#39;s see how it works! Click the next arrow above to continue the tutorial.</p>
+</div><div data-title="Landing Page Data" data-file="lead_alerts/views.py" data-highlight="6-17" class="step"><h2 id="landing-page-data">Landing Page Data</h2>
+<p>To display a landing page for our house, we&#39;ll first need some data about
+the fictional house we&#39;ve put on the market. For demonstration purposes,
+we&#39;ve hard-coded a dictionary containing information we need.</p>
+<hr>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//flask.pocoo.org/docs/0.10/quickstart/#routing">Flask Routing</a></li>
+<li><a href="//docs.python.org/2/tutorial/datastructures.html#dictionaries">Python Dictionary</a></li>
+</ul>
+</div><div data-title="Rendering the Landing Page" data-file="lead_alerts/templates/index.html" class="step"><h2 id="rendering-the-landing-page">Rendering the Landing Page</h2>
+<p>In our template, we insert data about the house, and in a sidebar
+include a form for the user to enter in their contact information to
+request more info about the home.</p>
+<hr>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//flask.pocoo.org/docs/0.10/tutorial/templates/">Flask Templates</a></li>
+</ul>
+</div><div data-title="Creating a Twilio API Client" data-file="lead_alerts/services/twilio_service.py" class="step"><h2 id="creating-a-twilio-rest-api-client">Creating a Twilio REST API Client</h2>
+<p>Here we create a helper class with an authenticated Twilio REST
+API client that we can use anytime we need to send a text message. We
+initialize it with our <a href="//www.twilio.com/user/account/messaging/dashboard">Twilio Account Credentials</a> 
+stored as environment variables.</p>
+<hr>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//www.twilio.com/docs/quickstart/ruby/sms/sending-via-rest">Twilio SMS and MMS Quickstart</a></li>
+</ul>
+</div><div data-title="Handling the POST Request" data-file="lead_alerts/views.py" data-highlight="19-40" class="step"><h2 id="handling-the-post-request">Handling the POST Request</h2>
+<p>This code handles the HTTP <code>POST</code> request issued by our landing page. It 
+uses our <code>MessageSender</code> class to send a SMS message to the real estate 
+agent&#39;s phone number, which is also set as a environment variable. We 
+include the lead&#39;s name, phone number, and inquiry directly in the body of 
+the text message we send to the agent.</p>
+<p>Now the agent has all the information they need to immediately follow up on the lead.</p>
+<hr>
+<p><strong>See Also:</strong></p>
+<ul>
+<li><a href="//flask.pocoo.org/docs/0.10/quickstart/#http-methods">Flask HTTP Methods</a></li>
+</ul>
+</div><div class="step"><h2 id="where-to-next-">Where to next?</h2>
+<p>That&#39;s it! We&#39;ve just implemented an application to instantly route leads
+to sales people using text messages. If you&#39;re a
+Python developer working with Twilio, you might want to check out these
+other tutorials.</p>
+<p><a href="//www.twilio.com/docs/tutorials/walkthrough/appointment-reminders/python/flask"><strong>Appointment Reminders</strong></a></p>
+<p>Learn to implement appointment reminders in your web app with Twilio.</p>
+<p><a href="//www.twilio.com/docs/tutorials/walkthrough/two-factor-authentication/python/flask"><strong>Two-Factor Authentication with Authy</strong></a></p>
+<p>Learn to implement two-factor authentication (2FA) in your web app with
+Twilio-powered Authy.</p>
+<h3 id="did-this-help-">Did this help?</h3>
+<p>Thanks for checking out this tutorial! If you have any feedback
+to share with us, we&#39;d love to hear it. Tweet
+<a href="//twitter.com/twilio">@twilio</a> to let us know what you
+think.</p>
+</div></div>
+<div class="saurus-files" style="display:none;"><textarea class="saurus-file" data-file="lead_alerts/services/twilio_service.py" data-mode="python">ZnJvbSBsZWFkX2FsZXJ0cyBpbXBvcnQgYXBwCmZyb20gdHdpbGlvLnJlc3QgaW1wb3J0IFR3aWxpb1Jlc3RDbGllbnQKCmNsYXNzIFR3aWxpb1NlcnZpY2U6CiAgICBjbGllbnQgPSBOb25lCgogICAgZGVmIF9faW5pdF9fKHNlbGYpOgogICAgICAgICMgRmluZCB0aGVzZSB2YWx1ZXMgYXQgaHR0cHM6Ly90d2lsaW8uY29tL3VzZXIvYWNjb3VudAogICAgICAgIGFjY291bnRfc2lkID0gYXBwLmNvbmZpZ1snVFdJTElPX0FDQ09VTlRfU0lEJ10KICAgICAgICBhdXRoX3Rva2VuICA9IGFwcC5jb25maWdbJ1RXSUxJT19BVVRIX1RPS0VOJ10KICAgICAgICBUd2lsaW9TZXJ2aWNlLmNsaWVudCA9IFR3aWxpb1Jlc3RDbGllbnQoYWNjb3VudF9zaWQsIGF1dGhfdG9rZW4pCgogICAgZGVmIHNlbmRfbWVzc2FnZShzZWxmLCBtZXNzYWdlKToKICAgICAgICBhZ2VudF9waG9uZV9udW1iZXIgPSBhcHAuY29uZmlnWydBR0VOVF9QSE9ORV9OVU1CRVInXQogICAgICAgIHR3aWxpb19waG9uZV9udW1iZXIgPSBhcHAuY29uZmlnWydUV0lMSU9fUEhPTkVfTlVNQkVSJ10KICAgICAgICBUd2lsaW9TZXJ2aWNlLmNsaWVudC5tZXNzYWdlcy5jcmVhdGUodG8gPSBhZ2VudF9waG9uZV9udW1iZXIsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGZyb21fID0gdHdpbGlvX3Bob25lX251bWJlciwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYm9keSA9IG1lc3NhZ2UpCg==</textarea>
+<textarea class="saurus-file" data-file="lead_alerts/views.py" data-mode="python">ZnJvbSBsZWFkX2FsZXJ0cyBpbXBvcnQgYXBwCmZyb20gZmxhc2sgaW1wb3J0IGZsYXNoLCByZWRpcmVjdCwgcmVuZGVyX3RlbXBsYXRlLCByZXF1ZXN0Cgpmcm9tIGxlYWRfYWxlcnRzLnNlcnZpY2VzLnR3aWxpb19zZXJ2aWNlIGltcG9ydCBUd2lsaW9TZXJ2aWNlCgpAYXBwLnJvdXRlKCcvJykKZGVmIGluZGV4KCk6CiAgICBob3VzZSA9IHsKICAgICAgICAgICAgICAgICd0aXRsZSc6ICc1NTUgU3Vubnlicm9vayBMYW5lJywKICAgICAgICAgICAgICAgICdwcmljZSc6ICckMzQ5LDk5OScsCiAgICAgICAgICAgICAgICAnZGVzY3JpcHRpb24nOgogICAgICAgICAgICAgICAgICAgICdZb3UgYW5kIHlvdXIgZmFtaWx5IHdpbGwgbG92ZSB0aGlzIGNoYXJtaW5nIGhvbWUuICcgKwogICAgICAgICAgICAgICAgICAgICdGZWF0dXJpbmcgZ3Jhbml0ZSBhcHBsaWFuY2VzLCBzdGFpbmxlc3Mgc3RlZWwgd2luZG93cywgYW5kICcgKwogICAgICAgICAgICAgICAgICAgICdoaWdoIGVmZmljaWVuY3kgZHVhbCBtdWQgcm9vbXMsIHRoaXMgam9pbnQgaXMgbG9hZGVkIHRvIHRoZSBtYXguICcgKwogICAgICAgICAgICAgICAgICAgICdNb3RpdmF0ZWQgc2VsbGVycyBoYXZlIHByaWNlZCBmb3IgYSBxdWljayBzYWxlLCBhY3Qgbm93IScKICAgICAgICAgICAgfQogICAgcmV0dXJuIHJlbmRlcl90ZW1wbGF0ZSgnaW5kZXguaHRtbCcsIGhvdXNlPWhvdXNlKQoKQGFwcC5yb3V0ZSgnL25vdGlmaWNhdGlvbnMnLCBtZXRob2RzPVsnUE9TVCddKQpkZWYgY3JlYXRlKCk6CiAgICBob3VzZV90aXRsZSA9IHJlcXVlc3QuZm9ybVsiaG91c2VfdGl0bGUiXQogICAgbmFtZSA9IHJlcXVlc3QuZm9ybVsibmFtZSJdCiAgICBwaG9uZSA9IHJlcXVlc3QuZm9ybVsicGhvbmUiXQogICAgbWVzc2FnZSA9IHJlcXVlc3QuZm9ybVsibWVzc2FnZSJdCgogICAgdHdpbGlvX3NlcnZpY2UgPSBUd2lsaW9TZXJ2aWNlKCkKCiAgICBmb3JtYXR0ZWRfbWVzc2FnZSA9IGJ1aWxkX21lc3NhZ2UoaG91c2VfdGl0bGUsIG5hbWUsIHBob25lLCBtZXNzYWdlKQogICAgdHJ5OgogICAgICAgIGZsYXNoKCdUaGFua3MhIEFuIGFnZW50IHdpbGwgYmUgY29udGFjdGluZyB5b3Ugc2hvcnRseScsICdzdWNjZXNzJykKICAgICAgICB0d2lsaW9fc2VydmljZS5zZW5kX21lc3NhZ2UoZm9ybWF0dGVkX21lc3NhZ2UpCiAgICBleGNlcHQgdHdpbGlvLlR3aWxpb1Jlc3RFeGNlcHRpb24gYXMgZToKICAgICAgICBwcmludCBlCiAgICAgICAgZmxhc2goJ09vcHMhIFRoZXJlIHdhcyBhbiBlcnJvci4gUGxlYXNlIHRyeSBhZ2Fpbi4nLCAnZGFuZ2VyJykKCiAgICByZXR1cm4gcmVkaXJlY3QoJy8nKQoKZGVmIGJ1aWxkX21lc3NhZ2UoaG91c2VfdGl0bGUsIG5hbWUsIHBob25lLCBtZXNzYWdlKToKICAgIHRlbXBsYXRlID0gJ05ldyBsZWFkIHJlY2VpdmVkIGZvciB7fS4gQ2FsbCB7fSBhdCB7fS4gTWVzc2FnZSB7fScKICAgIHJldHVybiB0ZW1wbGF0ZS5mb3JtYXQoaG91c2VfdGl0bGUsIG5hbWUsIHBob25lLCBtZXNzYWdlKQoK</textarea>
+<textarea class="saurus-file" data-file="lead_alerts/templates/index.html" data-mode="html">PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KICAgIDxtZXRhIGNoYXJzZXQ9InV0Zi04IiAvPgogICAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiPgogICAgPHRpdGxlPkxlYWQgQWxlcnRzPC90aXRsZT4KCiAgICA8bGluayBocmVmPSIvL21heGNkbi5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC8zLjMuNi9jc3MvYm9vdHN0cmFwLm1pbi5jc3MiIHJlbD0ic3R5bGVzaGVldCI+CiAgICA8bGluayBocmVmPSIvL21heGNkbi5ib290c3RyYXBjZG4uY29tL2ZvbnQtYXdlc29tZS80LjUuMC9jc3MvZm9udC1hd2Vzb21lLm1pbi5jc3MiIHJlbD0ic3R5bGVzaGVldCI+CiAgICA8bGluayBocmVmPSIvc3RhdGljL3N0eWxlc2hlZXRzL21haW4uY3NzIiByZWw9InN0eWxlc2hlZXQiPgo8L2hlYWQ+Cjxib2R5PgogICAgPGRpdiBpZD0ibWFpbiIgY2xhc3M9ImNvbnRhaW5lciI+CiAgICAgICAgeyUgd2l0aCBtZXNzYWdlcyA9IGdldF9mbGFzaGVkX21lc3NhZ2VzKHdpdGhfY2F0ZWdvcmllcz10cnVlKSAlfQogICAgICAgICAgICB7JSBpZiBtZXNzYWdlcyAlfQogICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iYWxlcnQgYWxlcnQte3sgbWVzc2FnZXMuMC4wIH19IiByb2xlPSJhbGVydCI+CiAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiB0eXBlPSJidXR0b24iIGNsYXNzPSJjbG9zZSIgZGF0YS1kaXNtaXNzPSJhbGVydCIgYXJpYS1sYWJlbD0iQ2xvc2UiPgogICAgICAgICAgICAgICAgICAgICAgICA8c3BhbiBhcmlhLWhpZGRlbj0idHJ1ZSI+JnRpbWVzOzwvc3Bhbj4KICAgICAgICAgICAgICAgICAgICA8L2J1dHRvbj4KICAgICAgICAgICAgICAgICAgICB7JSBmb3IgY2F0ZWdvcnksIG1lc3NhZ2UgaW4gbWVzc2FnZXMgJX0KICAgICAgICAgICAgICAgICAgICAgICAge3sgbWVzc2FnZSB9fSA8L2JyPgogICAgICAgICAgICAgICAgICAgIHslIGVuZGZvciAlfQogICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIHslIGVuZGlmICV9CiAgICAgICAgeyUgZW5kd2l0aCAlfQogICAgICAgIDxkaXYgY2xhc3M9InJvdyI+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImNvbC1zbS04Ij4KICAgICAgICAgICAgICAgIDxoMT57e2hvdXNlLnRpdGxlfX08L2gxPgogICAgICAgICAgICAgICAgPGgzPnt7aG91c2UucHJpY2V9fTwvaDM+CiAgICAgICAgICAgICAgICA8aW1nIHNyYz0iL3N0YXRpYy9pbWFnZXMvaG91c2UuanBnIiBhbHQ9IkhvdXNlIiAvPgogICAgICAgICAgICAgICAgPHA+e3tob3VzZS5kZXNjcmlwdGlvbn19PC9wPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0iY29sLXNtLTIgZGVtbyI+CiAgICAgICAgICAgICAgICA8aDQ+VGFsayBUbyBBbiBBZ2VudDwvaDQ+CiAgICAgICAgICAgICAgICA8cD4KICAgICAgICAgICAgICAgICAgICBBIHRyYWluZWQgcmVhbCBlc3RhdGUgcHJvZmVzc2lvbmFsIGlzIHN0YW5kaW5nIGJ5IHRvIGFuc3dlciBhbnkKICAgICAgICAgICAgICAgICAgICBxdWVzdGlvbnMgeW91IG1pZ2h0IGhhdmUgYWJvdXQgdGhpcyBwcm9wZXJ0eS4gRmlsbCBvdXQgdGhlIGZvcm0gYmVsb3cKICAgICAgICAgICAgICAgICAgICB3aXRoIHlvdXIgY29udGFjdCBpbmZvcm1hdGlvbiwgYW5kIGFuIGFnZW50IHdpbGwgcmVhY2ggb3V0IHNvb24uCiAgICAgICAgICAgICAgICA8L3A+CiAgICAgICAgICAgICAgICA8Zm9ybSBhY3Rpb249Ii9ub3RpZmljYXRpb25zIiBtZXRob2Q9IlBPU1QiPgogICAgICAgICAgICAgICAgICAgIDxpbnB1dCB0eXBlPSJoaWRkZW4iIG5hbWU9ImhvdXNlX3RpdGxlIiB2YWx1ZT0ie3tob3VzZS50aXRsZX19IiAvPgogICAgICAgICAgICAgICAgICAgIDxkaXYgY2xhc3M9ImZvcm0tZ3JvdXAiPgogICAgICAgICAgICAgICAgICAgICAgICA8bGFiZWwgZm9yPSJuYW1lIj5Zb3VyIE5hbWU8L2xhYmVsPgogICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT0idGV4dCIgaWQ9Im5hbWUiIG5hbWU9Im5hbWUiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIHBsYWNlaG9sZGVyPSJKb2huIEFwcGxlc2VlZCIgLz4KICAgICAgICAgICAgICAgICAgICA8L2Rpdj4KICAgICAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb3JtLWdyb3VwIj4KICAgICAgICAgICAgICAgICAgICAgICAgPGxhYmVsIGZvcj0icGhvbmUiPllvdXIgUGhvbmUgTnVtYmVyPC9sYWJlbD4KICAgICAgICAgICAgICAgICAgICAgICAgPGlucHV0IHR5cGU9InRleHQiIGlkPSJwaG9uZSIgbmFtZT0icGhvbmUiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIHBsYWNlaG9sZGVyPSIrMTY1MTIyMjk5ODgiIC8+CiAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPGRpdiBjbGFzcz0iZm9ybS1ncm91cCI+CiAgICAgICAgICAgICAgICAgICAgICAgIDxsYWJlbCBmb3I9Im1lc3NhZ2UiPkhvdyBjYW4gd2UgaGVscD88L2xhYmVsPgogICAgICAgICAgICAgICAgICAgICAgICA8aW5wdXQgdHlwZT0idGV4dCIgaWQ9Im1lc3NhZ2UiIG5hbWU9Im1lc3NhZ2UiIGNsYXNzPSJmb3JtLWNvbnRyb2wiIC8+CiAgICAgICAgICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgICAgICAgICAgPGJ1dHRvbiB0eXBlPSJzdWJtaXQiIGNsYXNzPSJidG4gYnRuLXByaW1hcnkiPlJlcXVlc3QgSW5mbzwvYnV0dG9uPgogICAgICAgICAgICAgICAgPC9mb3JtPgogICAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgIDwvZGl2PgogICAgPGZvb3RlciBjbGFzcz0iY29udGFpbmVyIj4KICAgICAgICBNYWRlIHdpdGggPGkgY2xhc3M9ImZhIGZhLWhlYXJ0Ij48L2k+IGJ5IHlvdXIgcGFscyA8YSBocmVmPSJodHRwOi8vd3d3LnR3aWxpby5jb20iPkB0d2lsaW88L2E+LgogICAgPC9mb290ZXI+CiAgICA8c2NyaXB0IHNyYz0iLy9jb2RlLmpxdWVyeS5jb20vanF1ZXJ5LTIuMS40LmpzIj48L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSIvL21heGNkbi5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC8zLjMuNi9qcy9ib290c3RyYXAubWluLmpzIj48L3NjcmlwdD4KPC9ib2R5Pgo8L2h0bWw+Cg==</textarea>
+</div>
+</div><div class="saurus-overview"><ul></ul></div></div><div class="saurus-code"><div class="file-path"><span class="crumb-container"></span><i class="fa fa-fw fa-folder"></i></div><div class="saurus-editor"></div></div><div class="saurus-explorer"><div class="saurus-file-list"></div><a href="https://github.com/TwilioDevEd/lead-alerts-flask" target="_blank" class="explorer-get-code"> <i class="fa fa-lg fa-github-square"> </i>View Code on GitHub</a></div></div></div></div><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script><script src="ace/ace.js"></script><script src="ace/theme-monokai.js"></script><script src="viewsaurus.js"></script></body></html>
