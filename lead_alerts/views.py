@@ -1,10 +1,8 @@
 from lead_alerts import app
-# from flask import Flask
 from flask import flash, redirect, render_template, request
 
 from lead_alerts.services.twilio_service import TwilioService
 
-# Route for Click to Call demo page.
 @app.route('/')
 def index():
     house = {
