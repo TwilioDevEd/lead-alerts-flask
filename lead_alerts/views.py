@@ -27,10 +27,9 @@ def create():
 
     formatted_message = build_message(house_title, name, phone, message)
     try:
-        flash('Thanks! An agent will be contacting you shortly', 'success')
         twilio_service.send_message(formatted_message)
-    except twilio.TwilioRestException as e:
-        print e
+        return redirect('/')
+    except:
         flash('Oops! There was an error. Please try again.', 'danger')
 
     return redirect('/')
