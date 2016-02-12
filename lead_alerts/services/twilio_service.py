@@ -13,6 +13,6 @@ class TwilioService:
     def send_message(self, message):
         agent_phone_number = app.config['AGENT_PHONE_NUMBER']
         twilio_phone_number = app.config['TWILIO_PHONE_NUMBER']
-        TwilioService.client.messages.create(to = agent_phone_number,
-                                             from_ = twilio_phone_number,
-                                             body = message)
+        TwilioService.client.messages.create(to=agent_phone_number,
+                                             from_=twilio_phone_number,
+                                             body=message)
