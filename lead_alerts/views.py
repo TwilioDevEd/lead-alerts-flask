@@ -1,5 +1,7 @@
 from lead_alerts import app
 from flask import flash, redirect, render_template, request
+from twilio import TwilioRestException
+
 
 from lead_alerts.services.twilio_service import TwilioService
 
@@ -28,8 +30,9 @@ def create():
     formatted_message = build_message(house_title, name, phone, message)
     try:
         twilio_service.send_message(formatted_message)
-        return redirect('/')
-    except:
+        flash('Thanks! An agent will be contacting you shortly', 'success')
+    except TwilioRestException as e:
+        print e
         flash('Oops! There was an error. Please try again.', 'danger')
 
     return redirect('/')
