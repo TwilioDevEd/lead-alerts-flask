@@ -11,9 +11,10 @@ This demo application shows how to implement instant lead alerts using Python an
 This project is built using the [Flask](http://flask.pocoo.org/) web framework.
 For now, it only runs on Python 2.7 (not 3.4+).
 
-To run the app locally, first clone this repository and `cd` into its directory. Then:
+1. Clone this repository and `cd` into it.
 
 1. Create a new virtual environment:
+
    * If using vanilla [virtualenv](https://virtualenv.pypa.io/en/latest/):
 
      ```
@@ -27,12 +28,14 @@ To run the app locally, first clone this repository and `cd` into its directory.
      mkvirtualenv lead-alerts-flask
      ```
 
-1. Install the requirements:
+1. Install the requirements.
+
    ```
    pip install -r requirements.txt
    ```
 
-1. Export the environment variables:
+1. Export the environment variables.
+
    You can find the `AccountSID` and the `AuthToken` at https://www.twilio.com/user/account/settings.
    ```
    export TWILIO_ACCOUNT_SID=Your Twilio Account SID
@@ -42,17 +45,18 @@ To run the app locally, first clone this repository and `cd` into its directory.
    ```
 
    To use [sessions](http://flask.pocoo.org/docs/0.10/quickstart/) in Flask you'll need to setup the `SECRET_KEY`.
+
    ```
    export SECRET_KEY=Your Secret Key
    ```
 
-1. Start the development server
+1. Start the development server.
 
    ```
    python manage.py runserver
    ```
 
-That's it
+   That's it!
 
 ## Run the tests
 
