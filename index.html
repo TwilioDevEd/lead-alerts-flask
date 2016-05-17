@@ -52,7 +52,7 @@ that are stored as environment variables.</p>
 </ul>
 </div><div data-title="Handling the POST Request" data-file="lead_alerts/views.py" data-highlight="19-40" class="step"><h2 id="handling-the-post-request">Handling the POST Request</h2>
 <p>This code handles the HTTP <code>POST</code> request issued by our landing page. It
-uses our <code>MessageSender</code> class to send an SMS message to the real estate
+uses our <code>TwilioService</code> class to send an SMS message to the real estate
 agent&#39;s phone number, which is also set as a environment variable. We
 include the lead&#39;s name, phone number, and inquiry directly in the body of
 the text message sent to the agent.</p>

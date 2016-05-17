@@ -75,7 +75,7 @@
       ## Handling the POST Request
 
       This code handles the HTTP `POST` request issued by our landing page. It
-      uses our `MessageSender` class to send an SMS message to the real estate
+      uses our `TwilioService` class to send an SMS message to the real estate
       agent's phone number, which is also set as a environment variable. We
       include the lead's name, phone number, and inquiry directly in the body of
       the text message sent to the agent.
