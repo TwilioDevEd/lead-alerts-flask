@@ -1,5 +1,5 @@
 from lead_alerts import app
-from twilio.rest import TwilioRestClient
+from twilio.rest import Client
 
 class TwilioService:
     client = None
@@ -7,8 +7,8 @@ class TwilioService:
     def __init__(self):
         # Find these values at https://twilio.com/user/account
         account_sid = app.config['TWILIO_ACCOUNT_SID']
-        auth_token  = app.config['TWILIO_AUTH_TOKEN']
-        TwilioService.client = TwilioRestClient(account_sid, auth_token)
+        auth_token = app.config['TWILIO_AUTH_TOKEN']
+        TwilioService.client = Client(account_sid, auth_token)
 
     def send_message(self, message):
         agent_phone_number = app.config['AGENT_PHONE_NUMBER']
