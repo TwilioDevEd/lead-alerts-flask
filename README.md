@@ -44,24 +44,17 @@ For now, it only runs on Python 2.7 (not 3.4+).
    pip install -r requirements.txt
    ```
 
-1. Export the environment variables.
+1. Copy the sample configuration file and edit it to match your configuration.
+
+   ```bash
+   $ cp .env.example .env
+   ```
 
    You can find your `TWILIO_ACCOUNT_SID` and `TWILIO_AUTH_TOKEN` in your
    [Twilio Account Settings](https://www.twilio.com/user/account/settings).
-   You will also need a `TWILIO_PHONE_NUMBER`, which you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
+   You will also need a `TWILIO_NUMBER`, which you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
 
-   ```bash
-   export TWILIO_ACCOUNT_SID=Your Twilio Account SID
-   export TWILIO_AUTH_TOKEN=Your Twilio Auth Token
-   export TWILIO_PHONE_NUMBER=Your Twilio Phone Number
-   export AGENT_PHONE_NUMBER=The Agent's Phone Number
-   ```
-
-   To use [sessions](http://flask.pocoo.org/docs/0.10/quickstart/) in Flask you'll need to setup the `SECRET_KEY`.
-
-   ```bash
-   export SECRET_KEY=Your Secret Key
-   ```
+   Run `source .env` to export the environment variables.
 
 1. Make sure the tests succeed.
 
