@@ -1,6 +1,6 @@
 from lead_alerts import app
 from flask import flash, redirect, render_template, request
-from twilio import TwilioRestException
+from twilio.exceptions import TwilioRestException
 
 
 from lead_alerts.services.twilio_service import TwilioService
