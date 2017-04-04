@@ -8,11 +8,11 @@ class TwilioService:
         # Find these values at https://twilio.com/user/account
         account_sid = app.config['TWILIO_ACCOUNT_SID']
         auth_token = app.config['TWILIO_AUTH_TOKEN']
-        TwilioService.client = Client(account_sid, auth_token)
+        self.client = Client(account_sid, auth_token)
 
     def send_message(self, message):
         agent_phone_number = app.config['AGENT_PHONE_NUMBER']
         twilio_phone_number = app.config['TWILIO_PHONE_NUMBER']
-        TwilioService.client.messages.create(to=agent_phone_number,
-                                             from_=twilio_phone_number,
-                                             body=message)
+        self.client.messages.create(to=agent_phone_number,
+                                    from_=twilio_phone_number,
+                                    body=message)
