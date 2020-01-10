@@ -10,6 +10,8 @@ This demo application shows how to implement instant lead alerts using Python an
 
 [![Build Status](https://travis-ci.org/TwilioDevEd/lead-alerts-flask.svg?branch=master)](https://travis-ci.org/TwilioDevEd/lead-alerts-flask)
 
+> We are currently in the process of updating this sample template. If you are encountering any issues with the sample, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues) and we'll try to help you.
+
 ## Local development
 
 This project is built using [Flask](http://flask.pocoo.org/) web framework.
