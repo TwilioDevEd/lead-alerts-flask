@@ -1,5 +1,8 @@
 from flask import Flask
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Declare and configure application
 app = Flask(__name__, static_url_path='/static')

@@ -8,7 +8,7 @@ This demo application shows how to implement instant lead alerts using Python an
 
 [Read the full tutorial here](https://www.twilio.com/docs/tutorials/walkthrough/lead-alerts/python/flask)!
 
-[![Build Status](https://travis-ci.org/TwilioDevEd/lead-alerts-flask.svg?branch=master)](https://travis-ci.org/TwilioDevEd/lead-alerts-flask)
+![](https://github.com/TwilioDevEd/lead-alerts-flask/workflows/Flask/badge.svg)
 
 > We are currently in the process of updating this sample template. If you are encountering any issues with the sample, please open an issue at [github.com/twilio-labs/code-exchange/issues](https://github.com/twilio-labs/code-exchange/issues) and we'll try to help you.
 
@@ -56,8 +56,6 @@ For now, it only runs on Python 2.7 (not 3.4+).
    [Twilio Account Settings](https://www.twilio.com/user/account/settings).
    You will also need a `TWILIO_NUMBER`, which you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
 
-   Run `source .env` to export the environment variables.
-
 1. Make sure the tests succeed.
 
     ```bash
@@ -75,5 +73,6 @@ For now, it only runs on Python 2.7 (not 3.4+).
 ## Meta
 
 * No warranty expressed or implied. Software is as is. Diggity.
+* The CodeExchange repository can be found [here](https://github.com/twilio-labs/code-exchange/).
 * [MIT License](http://www.opensource.org/licenses/mit-license.html)
 * Lovingly crafted by Twilio Developer Education.
