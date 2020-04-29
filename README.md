@@ -15,7 +15,11 @@ This demo application shows how to implement instant lead alerts using Python an
 ## Local development
 
 This project is built using [Flask](http://flask.pocoo.org/) web framework.
-For now, it only runs on Python 2.7 (not 3.4+).
+For now, it only runs on Python 3.6+. In some environments when both version 2
+and 3 are installed, you may substitute the Python executables below with
+`python3` and `pip3` unless you use a version manager such as
+[pyenv](https://github.com/pyenv/pyenv).
+
 
 1. First clone this repository and `cd` into it.
 
@@ -25,7 +29,7 @@ For now, it only runs on Python 2.7 (not 3.4+).
    ```
 
 
-1. Create a new virtual environment:
+2. Create a new virtual environment:
 
    * If using vanilla [virtualenv](https://virtualenv.pypa.io/en/latest/):
 
@@ -40,13 +44,13 @@ For now, it only runs on Python 2.7 (not 3.4+).
      mkvirtualenv lead-alerts-flask
      ```
 
-1. Install the dependencies.
+3. Install the dependencies.
 
    ```bash
    pip install -r requirements.txt
    ```
 
-1. Copy the sample configuration file and edit it to match your configuration.
+4. Copy the sample configuration file and edit it to match your configuration.
 
    ```bash
    $ cp .env.example .env
@@ -56,19 +60,19 @@ For now, it only runs on Python 2.7 (not 3.4+).
    [Twilio Account Settings](https://www.twilio.com/user/account/settings).
    You will also need a `TWILIO_NUMBER`, which you may find [here](https://www.twilio.com/user/account/phone-numbers/incoming).
 
-1. Make sure the tests succeed.
+5. Make sure the tests succeed.
 
     ```bash
-    $ coverage run manage.py test
+    $ python manage.py test
     ```
 
-1. Start the server.
+6. Start the server.
 
    ```bash
    python manage.py runserver
    ```
 
-1. Check it out at: [http://localhost:5000/](http://localhost:5000/).
+7. Check it out at: [http://localhost:5000/](http://localhost:5000/).
 
 ## Meta
 
