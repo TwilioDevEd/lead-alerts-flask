@@ -16,7 +16,7 @@ pytz==2019.3
 python-dotenv==0.12.0
 six==1.14.0
 traceback2==1.4.0
-twilio==6.38.0
+twilio==6.47.0
 unittest2==1.1.0
 Werkzeug==1.0.1
 wheel==0.34.2
