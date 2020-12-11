@@ -10,7 +10,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.2
 linecache2==1.0.0
 MarkupSafe==1.1.1
-mock==4.0.2
+mock==4.0.3
 pbr==5.5.1
 pytz==2020.4
 python-dotenv==0.15.0
