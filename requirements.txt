@@ -7,7 +7,7 @@ Flask-WTF==0.14.3
 funcsigs==1.0.2
 httplib2==0.19.1
 itsdangerous==1.1.0
-Jinja2==2.11.3
+Jinja2==3.0.0
 linecache2==1.0.0
 MarkupSafe==1.1.1
 mock==4.0.3
